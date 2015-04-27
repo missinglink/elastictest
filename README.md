@@ -81,7 +81,7 @@ suite.assert( function( done ){
 
 #### Run the suite
 
-You may provide an `optional_callback` function to run once the suite is complete. This is useful for telling your alerting your testing framework that work is done for this unit of work.
+You may provide an `optional_callback` function to run once the suite is complete. This is useful for alerting your testing framework that work is done for this unit of work.
 
 ```javascript
 suite.run( optional_callback );
