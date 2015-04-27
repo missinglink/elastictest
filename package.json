@@ -1,0 +1,33 @@
+{
+  "name": "elastictest",
+  "version": "0.0.0",
+  "description": "A simple test suite for elasticsearch functional testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test/run.js | tap-spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/missinglink/elastictest"
+  },
+  "keywords": [
+    "elasticsearch",
+    "test",
+    "functional"
+  ],
+  "author": "missinglink",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/missinglink/elastictest/issues"
+  },
+  "homepage": "https://github.com/missinglink/elastictest",
+  "devDependencies": {
+    "tap-spec": "^0.2.0",
+    "tape": "^2.13.4"
+  },
+  "dependencies": {
+    "async": "^0.9.0",
+    "elasticsearch": "^4.0.2",
+    "randomstring": "^1.0.5"
+  }
+}
