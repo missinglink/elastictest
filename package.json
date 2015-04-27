@@ -1,7 +1,7 @@
 {
   "name": "elastictest",
   "version": "0.0.0",
-  "description": "A simple test suite for elasticsearch functional testing",
+  "description": "A simple test harness for elasticsearch functional testing",
   "main": "index.js",
   "scripts": {
     "test": "node test/run.js | tap-spec"
