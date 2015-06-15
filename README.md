@@ -87,6 +87,14 @@ You may provide an `optional_callback` function to run once the suite is complet
 suite.run( optional_callback );
 ```
 
+#### Use a custom schema when creating your test index
+
+You may provide a `schema` property when creating your Suite, this will be used whenever creating new indeces.
+
+```javascript
+var suite = new elastictest.Suite( null, { schema: custom_schema });
+```
+
 ---
 
 ## License
