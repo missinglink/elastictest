@@ -22,12 +22,12 @@
   },
   "homepage": "https://github.com/missinglink/elastictest",
   "devDependencies": {
-    "tap-spec": "^0.2.0",
-    "tape": "^2.13.4"
+    "tap-spec": "^4.1.1",
+    "tape": "^4.5.1"
   },
   "dependencies": {
-    "async": "^0.9.0",
-    "elasticsearch": "^4.0.2",
-    "randomstring": "^1.0.5"
+    "async": "^1.5.2",
+    "elasticsearch": "^10.1.3",
+    "randomstring": "^1.1.4"
   }
 }
