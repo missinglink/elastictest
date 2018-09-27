@@ -4,8 +4,8 @@ var elastictest = require('../');
 module.exports.tests = {};
 
 var custom_schema = {
-  settings: { index: { index_concurrency: '999' } },
-  mappings: { mytype: { properties: { name: { type: 'string' } } } }
+  settings: { index: { refresh_interval: '-1' } },
+  mappings: { mytype: { properties: { name: { type: 'long' } } } }
 };
 
 // test creating index with custom schema
@@ -59,10 +59,11 @@ module.exports.tests.default_schema = function(test, common) {
     // ensure custom mappings are set
     suite.assert( function( done ){
       suite.client.indices.getMapping({
-        index: suite.props.index,
-        type: 'mytype'
+        index: suite.props.index
       }, function( err, res ){
-        t.deepEqual( res, {}, 'default mappings' );
+        var expected = {};
+        expected[suite.props.index] = { mappings: {} };
+        t.deepEqual( res, expected, 'default mappings' );
         done();
       });
     });
