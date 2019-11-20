@@ -11,7 +11,7 @@ module.exports.tests.example = function(test, common) {
 
     var doc = {
       index: suite.props.index,
-      type: 'mytype',
+      type: '_doc',
       id: '1',
       body: {
         foo: 'bar'
