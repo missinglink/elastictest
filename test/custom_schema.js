@@ -5,7 +5,7 @@ module.exports.tests = {};
 
 var custom_schema = {
   settings: { index: { refresh_interval: '-1' } },
-  mappings: { mytype: { properties: { name: { type: 'long' } } } }
+  mappings: { _doc: { properties: { name: { type: 'long' } } } }
 };
 
 // test creating index with custom schema
@@ -19,7 +19,7 @@ module.exports.tests.custom_schema = function(test, common) {
     suite.assert( function( done ){
       suite.client.indices.getMapping({
         index: suite.props.index,
-        type: 'mytype'
+        type: '_doc'
       }, function( err, res ){
         t.deepEqual( res[suite.props.index].mappings, custom_schema.mappings, 'mappings set' );
         done();
