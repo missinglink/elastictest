@@ -11,7 +11,6 @@ module.exports.tests.example = function(test, common) {
 
     var doc = {
       index: suite.props.index,
-      type: '_doc',
       id: '1',
       body: {
         foo: 'bar'
@@ -25,7 +24,6 @@ module.exports.tests.example = function(test, common) {
     suite.assert( function( done ){
       suite.client.count({
         index: doc.index,
-        type: doc.type
       }, function( err, res ){
         t.equal( res.body.count, 1, 'record count' );
         done();
@@ -35,7 +33,6 @@ module.exports.tests.example = function(test, common) {
     suite.assert( function( done ){
       suite.client.get({
         index: doc.index,
-        type: doc.type,
         id: doc.id
       }, function( err, res ){
         const body = res.body;
