@@ -15,7 +15,6 @@ var suite = new elastictest.Suite();
 
 var doc = {
   index: suite.props.index,
-  type: 'mytype',
   id: '1',
   body: {
     foo: 'bar'
@@ -29,7 +28,6 @@ suite.action( function( done ){
 suite.assert( function( done ){
   suite.client.count({
     index: doc.index,
-    type: doc.type
   }, function( err, res ){
     t.equal( res.count, 1, 'record count' );
     done();
@@ -71,7 +69,6 @@ You **must** call `done()` when your async operations are complete. You may add 
 suite.assert( function( done ){
   suite.client.count({
     index: doc.index,
-    type: doc.type
   }, function( err, res ){
     t.equal( res.count, 1, 'record count' );
     done();

@@ -5,7 +5,7 @@ module.exports.tests = {};
 
 var custom_schema = {
   settings: { index: { refresh_interval: '-1' } },
-  mappings: { _doc: { properties: { name: { type: 'long' } } } }
+  mappings: { properties: { name: { type: 'long' } } }
 };
 
 // test creating index with custom schema
@@ -19,9 +19,8 @@ module.exports.tests.custom_schema = function(test, common) {
     suite.assert( function( done ){
       suite.client.indices.getMapping({
         index: suite.props.index,
-        type: '_doc'
       }, function( err, res ){
-        t.deepEqual( res[suite.props.index].mappings, custom_schema.mappings, 'mappings set' );
+        t.deepEqual( res.body[suite.props.index].mappings, custom_schema.mappings, 'mappings set' );
         done();
       });
     });
@@ -39,7 +38,7 @@ module.exports.tests.custom_schema = function(test, common) {
       suite.client.indices.getSettings({
         index: suite.props.index
       }, function( err, res ){
-        t.deepEqual( res[suite.props.index].settings.index_concurrency, custom_schema.settings.index_concurrency, 'settings set' );
+        t.deepEqual( res.body[suite.props.index].settings.index_concurrency, custom_schema.settings.index_concurrency, 'settings set' );
         done();
       });
     });
@@ -63,7 +62,7 @@ module.exports.tests.default_schema = function(test, common) {
       }, function( err, res ){
         var expected = {};
         expected[suite.props.index] = { mappings: {} };
-        t.deepEqual( res, expected, 'default mappings' );
+        t.deepEqual( res.body, expected, 'default mappings' );
         done();
       });
     });
@@ -81,7 +80,7 @@ module.exports.tests.default_schema = function(test, common) {
       suite.client.indices.getSettings({
         index: suite.props.index
       }, function( err, res ){
-        t.deepEqual( res[suite.props.index].settings.index_concurrency, undefined, 'default settings' );
+        t.deepEqual( res.body[suite.props.index].settings.index_concurrency, undefined, 'default settings' );
         done();
       });
     });
